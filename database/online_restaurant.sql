@@ -1,5 +1,5 @@
 /*
-SQLyog Community Edition- MySQL GUI v8.03 
+SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.7.9 : Database - online_restaurant
 *********************************************************************
 */
@@ -8,9 +8,10 @@ MySQL - 5.7.9 : Database - online_restaurant
 
 /*!40101 SET SQL_MODE=''*/;
 
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`online_restaurant` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `online_restaurant`;
@@ -40,11 +41,11 @@ CREATE TABLE `order_child` (
   `product_id` int(11) DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
   PRIMARY KEY (`order_child_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `order_child` */
 
-insert  into `order_child`(`order_child_id`,`order_master_id`,`product_id`,`quantity`) values (1,1,4,1),(2,1,5,2),(3,2,4,1),(4,2,5,1),(5,3,4,4),(6,5,4,3);
+insert  into `order_child`(`order_child_id`,`order_master_id`,`product_id`,`quantity`) values (1,1,2,1),(2,1,3,1),(3,2,2,1),(4,2,4,2),(5,3,3,4),(6,4,4,5),(7,4,5,1),(8,4,2,3);
 
 /*Table structure for table `order_master` */
 
@@ -62,11 +63,11 @@ CREATE TABLE `order_master` (
   `phone_number` varchar(10) DEFAULT NULL,
   `delivery_status` varchar(20) DEFAULT 'pending',
   PRIMARY KEY (`order_master_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `order_master` */
 
-insert  into `order_master`(`order_master_id`,`order_id`,`order_date`,`delivery_date`,`delivery_time`,`customer_name`,`house_name`,`place`,`phone_number`,`delivery_status`) values (1,'5','2019-08-16','2019-08-16','13:00:00','akhil','test','test','9876543210','delivered'),(2,'5d2db5768d8e6','2019-07-16','2019-07-16','13:00:00','akhil','test','test','9876543210','delivered'),(3,'5d2ee93e977c8','2019-07-17','2019-07-18','11:59:00','dfg','jyf','hrt','54','pending'),(4,'5d2ee9cde09c6','2019-07-17','2019-07-18','11:59:00','dfg','jyf','hrt','54','pending'),(5,'5d2eea46bd0eb','2019-07-17','2019-07-17','04:44:00','ujg','mjnhb','mvnb','756','pending');
+insert  into `order_master`(`order_master_id`,`order_id`,`order_date`,`delivery_date`,`delivery_time`,`customer_name`,`house_name`,`place`,`phone_number`,`delivery_status`) values (1,'5d3034cae2515','2019-06-30','2019-06-30','13:00:00','amal','amal nivas','kochi','9876543210','cancelled'),(2,'5d3037778ca4d','2019-06-30','2019-06-30','13:00:00','akash','Flat no 33 confident gorups kaloor','kaloor','9876123450','delivered'),(3,'5d30382624af1','2019-07-18','2019-07-18','14:22:00','anjaly','federal bank mg road','mg road','9987654123','delivered'),(4,'5d3038981f12e','2019-07-18','2019-07-18','15:00:00','rajesh','joy alukkas jewellery','mg road','6629123450','delivered');
 
 /*Table structure for table `products` */
 
@@ -79,11 +80,13 @@ CREATE TABLE `products` (
   `unit_type` varchar(10) DEFAULT NULL,
   `available_status` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `products` */
 
-insert  into `products`(`product_id`,`product_name`,`unit_price`,`unit_type`,`available_status`) values (3,'alfahm',250,'half','Not Available'),(4,'cb',120,'full','available'),(5,'cutlet',25,'piece','available');
+insert  into `products`(`product_id`,`product_name`,`unit_price`,`unit_type`,`available_status`) values (1,'alfahm',120,'piece','not available'),(2,'Chilli Chicken',80,'Plate','available'),(3,'Butter Chicken',110,'Plate','available'),(4,'Chappathi',10,'piece','available'),(5,'Beef Roast',80,'Plate','available'),(6,'Beef Biriyani full',120,'Plate','available');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
