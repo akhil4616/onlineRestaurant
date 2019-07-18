@@ -43,7 +43,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td>Grand Total :</td>	
+				<th>Grand Total :</th>	
 				<th><?php echo '₹'. $total ?></th>
 			</tr>
 			<tr>

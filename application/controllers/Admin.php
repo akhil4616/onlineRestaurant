@@ -6,7 +6,7 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		#	check for session
 		if($this->session->userdata('loginId')==False){
-			$this->session->set_userdata('errorMsg','Login to Continue !');
+			$this->session->set_userdata('message','Login to Continue !');
 			redirect(base_url().'login');
 		}
 	}
@@ -20,10 +20,13 @@ class Admin extends CI_Controller {
 
 	
 	public function createProduct(){
-
+		$this->form_validation->set_rules('product_name','Product Name','required|min_length[3]|max_length[20]');
+		$this->form_validation->set_rules('unit_price','Unit Price','required|min_length[1]|max_length[6]');
+		$this->form_validation->set_rules('unit_type','Unit Type','required|min_length[2]|max_length[10]');
 		if($this->input->post('add_product')==True){
 			if($this->form_validation->run()===True){
 				$this->ProductModel->createProduct();
+				$this->session->set_userdata('message','Added Successfully');
 			}
 		}
 		$this->load->view('Admin/header');
@@ -45,7 +48,8 @@ class Admin extends CI_Controller {
 		if($this->input->post('edit_product')==True){
 			if($this->form_validation->run()===True){
 				$this->ProductModel->editProduct($id);
-				redirect('admin/viewProducts');
+				$this->session->set_userdata('message','Updated Successfully');
+				redirect(base_url().'admin/viewProducts');
 			}
 		}
 
@@ -69,12 +73,17 @@ class Admin extends CI_Controller {
 
 		if($this->input->post('mark_as_delivered')==True){
 			$this->OrderModel->updateOrder('delivered');
+			$this->session->set_userdata('message','delivered Successfully');
+			redirect(base_url().'Admin/viewOrders');
 		}
 		if($this->input->post('mark_as_cancelled')==True){
 			$this->OrderModel->updateOrder('cancelled');
+			$this->session->set_userdata('message','the Order is cancelled');
+			redirect(base_url().'Admin/viewOrders');
 		}
 		if($this->input->post('mark_as_processing')==True){
 			$this->OrderModel->updateOrder('processing');
+			$this->session->set_userdata('message','Marked as Processing');
 		}
 
 		$data['orderDetails']=$this->OrderModel->viewOrderDetails($orderId);

@@ -1,7 +1,7 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	$total=0;
-?><h2 align="center">Your Cart</h2>
+?><h2 align="center">Your Cart</h2><hr>
 <?php if ($cartCount>0): ?>
 <table class="table ">
 	<thead>

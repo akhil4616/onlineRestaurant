@@ -11,10 +11,10 @@
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/styles.css">
-   <?php if($this->session->userdata('errorMsg')==True) :?>
-        <!--alert for login -->
-        <script>alert("<?php echo $this->session->userdata('errorMsg'); ?>")</script>   
-     <?php $this->session->unset_userdata('errorMsg'); ?>   
+
+    <?php if($this->session->userdata('message')==True) :?>
+        <script>alert("<?php echo $this->session->userdata('message'); ?>")</script>
+        <?php $this->session->unset_userdata('message'); ?>   
     <?php endif ?>
 </head>
 
@@ -25,7 +25,8 @@
                 <div class="collapse navbar-collapse"
                     id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url(); ?>" style="color:rgb(255,255,255);">HOME</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url(); ?>" style="color:rgb(255,255,255);">Home</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url(); ?>" style="color:rgb(255,255,255);">Menu</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url() ?>login" style="color:rgb(255,255,255);">Admin Login</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url() ?>Customer/viewCart" style="color:rgb(255,255,255);">Cart(<?php echo $cartCount; ?>)</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link " href="<?php echo base_url(); ?>Customer/trackOrder" style="color:rgb(255,255,255);">Track Order</a></li>

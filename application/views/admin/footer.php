@@ -12,7 +12,7 @@
                 <li class="list-inline-item"><a href="#">Terms</a></li>
                 <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
             </ul>
-            <p class="copyright">Company Name © 2019</p>
+            <p class="copyright">Online Restaurant © 2019</p>
         </footer>
     </div>
     <script src="<?php echo base_url() ?>assets/js/jquery.min.js"></script>

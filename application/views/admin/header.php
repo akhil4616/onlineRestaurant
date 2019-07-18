@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Login-Form-Clean.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/Navigation-Clean.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/styles.css">
-    <?php if($this->session->userdata('errorMsg')==True) :?>
-        <script>toastr.warning("<?php echo $this->errorMsg; ?>")</script>
-        
+
+    <?php if($this->session->userdata('message')==True) :?>
+        <script>alert("<?php echo $this->session->userdata('message'); ?>")</script>
+        <?php $this->session->unset_userdata('message'); ?>   
     <?php endif ?>
 </head>
 
@@ -37,6 +38,6 @@
             </div>
         </nav>
     </div>
-    <div class="container" style="min-height:400px" align="center" > 
+    <div class="container" style="min-height:400px;padding-top: 50px" align="center" > 
         <div class="row"> 
             <div class="col-md-12"> 

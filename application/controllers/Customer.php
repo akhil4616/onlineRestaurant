@@ -63,7 +63,9 @@ class Customer extends CI_Controller {
 			array_push($cart,$cartData);
 			$this->session->set_userdata("cart",$cart);
 		}
-		redirect('Home');
+		$message='Added to Cart successfully';
+		$this->session->set_userdata("message",$message);
+		redirect(base_url().'Home');
 	}
 	public function viewCart(){
 		$data['cartCount']=$this->cartCount;
@@ -82,7 +84,7 @@ class Customer extends CI_Controller {
 			}
 			
 		}
-		redirect('Customer/viewCart');
+		redirect(base_url().'Customer/viewCart');
 	}
 	# method for empty the cart
 	public function emptyCart(){

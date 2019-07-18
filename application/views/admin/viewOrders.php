@@ -15,9 +15,9 @@
 		<td><?php echo $orderDetail['house_name'] ?></td>
 		<td><?php echo $orderDetail['place'] ?></td>
 		<td><?php echo $orderDetail['phone_number'] ?></td>
-		<td><?php echo $orderDetail['amount'] ?></td>
+		<td><?php echo '₹'. $orderDetail['amount'] ?></td>
 		<td><?php echo $orderDetail['delivery_status'] ?></td>
-		<td><a href="<?php echo base_url().'Admin/viewOrderDetails/'.$orderDetail['order_id'] ?>">View Details</a></td>
+		<td><a href="<?php echo base_url().'Admin/viewOrderDetails/'.$orderDetail['order_id'] ?>"><button>View Details</button></a></td>
 	</tr>
 <?php endforeach; ?>
 </table>

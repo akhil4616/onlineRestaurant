@@ -45,6 +45,7 @@
 			$this->db->join('order_child','order_child.order_master_id=order_master.order_master_id','inner');
 			$this->db->join('products','order_child.product_id=products.product_id','inner');
 			$this->db->group_by('order_id');
+			$this->db->order_by('order_id','DESC');
 			$query=$this->db->get();
 			return $query->result_array();
 		}
